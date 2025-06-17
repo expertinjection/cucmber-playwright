@@ -15,6 +15,7 @@ class CustomWorld extends World{
     this.tgBasePage = null;
     this.tgFrontendTestingPage = null;
     this.tgLoginPage = null;
+    this.DynamicTablesPage = null;
   }
 }
 

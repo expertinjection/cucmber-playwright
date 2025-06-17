@@ -1,4 +1,4 @@
-export class BasePage {
+class BasePage {
     constructor(page) {
       this.page = page;
   
@@ -24,3 +24,4 @@ export class BasePage {
       await this.page.waitForTimeout(ms);
     }
   }
+export {BasePage}

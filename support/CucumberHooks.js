@@ -5,6 +5,7 @@ import { TGBasePage } from "../pages/tg-app-pages/TGBasePage.js";
 import { TGFrontendTestingPage } from "../pages/tg-app-pages/TGFrontendTestingPage.js";
 import { TGLoginPage } from "../pages/tg-app-pages/TGLoginPage.js";
 import { BasePage } from "../pages/BasePage.js";
+//import { DynamicTablesPage } from "../pages/DynamicTablesPage.js";
 
 // This file runs before/after anything else in the steps folder
 setDefaultTimeout(60000);
@@ -25,6 +26,7 @@ Before(async function() {
   this.tgBasePage = new TGBasePage(this.page);
   this.tgFrontendTestingPage = new TGFrontendTestingPage(this.page);
   this.tgLoginPage = new TGLoginPage(this.page);
+  this.dynamicTablesPage = new DynamicTablesPage(this.page)
 });
 
 After(async function() {
