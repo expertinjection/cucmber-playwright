@@ -5,7 +5,7 @@ import { TGBasePage } from "../pages/tg-app-pages/TGBasePage.js";
 import { TGFrontendTestingPage } from "../pages/tg-app-pages/TGFrontendTestingPage.js";
 import { TGLoginPage } from "../pages/tg-app-pages/TGLoginPage.js";
 import { BasePage } from "../pages/BasePage.js";
-//import { DynamicTablesPage } from "../pages/DynamicTablesPage.js";
+import { DynamicTablesPage } from "../pages/DynamicTablesPage.js";
 
 // This file runs before/after anything else in the steps folder
 setDefaultTimeout(60000);
