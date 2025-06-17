@@ -1,6 +1,6 @@
 import { Given, Then, When } from "@cucumber/cucumber"
 import { expect } from "@playwright/test"
-import { DynamicTablesPage } from "../pages/DynamicTablesPage.js"
+import { DynamicTablesPage } from "../pages/DynamicTablesPage";
 Given('the user is on {string}', async function () {
     await this.basePage.goto(
         "https://techglobal-training.com/frontend/dynamic-tables"
@@ -45,75 +45,77 @@ Then(/^the user should see the “X” button is enabled$/, async function() {
 });
 
 Then(/^the user should see the “Please select the quantity” label$/, async function() {
-	
+	await expect(this.dynamicTablesPage.prodectModalLabels).toBeVisible()
 });
 
 Then(/^the user should see the “Quantity” input box is enabled$/, async function() {
-	return true;
+	await expect(this.dynamicTablesPage.quantityInput).toBeEnabled()
 });
 
 Then(/^the user should see the “Please enter the name of the product” label$/, async function() {
-	return true;
+    await expect(this.dynamicTablesPage.prodectModalLabels).toBeVisible()
 });
 
 Then(/^the user should see the “Product” input box is enabled$/, async function() {
-	return true;
+	await expect(this.dynamicTablesPage.productNameInput).toBeEnabled()
 });
 
 Then(/^the user should see the “Please enter the price of the product” label$/, async function() {
-	return true;
+	await expect(this.dynamicTablesPage.prodectModalLabels).toBeVisible()
 });
 
 Then(/^the user should see the “Price” input box is enabled$/, async function(){
-	return true;
+	await expect(this.dynamicTablesPage.priceInput).toBeEnabled()
 });
 
 Then(/^the user should see the “SUBMIT” button is enabled$/, async function(){
-	return true;
+	await expect(this.dynamicTablesPage.submitBtn).toBeEnabled()
 });
 
 When(/^the user clicks on the “ADD PRODUCT” button$/, async function() {
-	return true;
+	await this.dynamicTablesPage.clickAddButton()
 });
 
 Then(/^the user should see the “Add New Product” modal with its heading$/, async function() {
-	return true;
+	await expect(this.dynamicTablesPage.prodectModalTitle).toBeVisible()
 });
 
 When(/^the user clicks on the “X” button$/, async function() {
-	return true;
+	await this.dynamicTablesPage.clickOnCloseButton()
 });
 
 Then(/^the user should not see the “Add New Product” modal$/, async function() {
-	return true;
+	await expect(this.dynamicTablesPage.newProductModel).not.toBeVisible()
 });
 
 When(/^the user clicks on the “ADD PRODUCT” button$/, async function() {
-	return true;
+	await this.dynamicTablesPage.clickAddButton()
 });
 
 When(/^the user enters the quantity as “2”$/, async function(){
-	return true;
+	await this.dynamicTablesPage.quantityInput.fill(2)
 });
 
 When(/^the user enters the product as “Mouse”$/, async function() {
-	return true;
+	await this.dynamicTablesPage.productNameInput.fill('Mouse')
 });
 
 When(/^the user enters the price as “100”$/, async function(){
-	return true;
+	await this.dynamicTablesPage.priceInput.fill('100') 
 });
 
 When(/^the user clicks on the “SUBMIT” button$/, async function() {
-	return true;
+	await this.dynamicTablesPage.clickSubmitButton()
 });
 
 Then(/^the user should see the table with the new row below$/, async function(){
-	return true;
+	const actualRows = await this.dynamicTablesPage.tableRows.allTextContents();
+    const expectedRows = rows.raw().map(row => row.join(' '));
+    expect(actualRows).toContain(expectedRows[0])
 });
 
 
 Then(/^the user should see the “Total = $2,500” text displayed$/, async function() {
-	return true;
+    await expect(this.dynamicTablesPage.total).toHaveText("Total = $2,300")
 });
 

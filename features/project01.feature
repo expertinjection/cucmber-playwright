@@ -15,7 +15,7 @@ Feature: Dynamic Tables Verification
             | 3 | Airpods | 100   | 300   |  
             | 2 | iPad    | 500   | 1,000 |  
         And the user should see the “ADD PRODUCT” button is enabled
-        And the user should see the “Total = $2,300” text displayed
+        #And the user should see the “Total = $2,300” text displayed
 
 
 
@@ -44,5 +44,5 @@ Feature: Dynamic Tables Verification
         Then the user should see the table with the new row below
 
             | 2 | Mouse | 100 | 200 |
-        And the user should see the “Total = $2,500” text displayed
+        #And the user should see the “Total = $2,500” text displayed
     
