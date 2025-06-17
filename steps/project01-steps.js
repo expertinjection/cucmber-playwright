@@ -1,12 +1,9 @@
 import { Given, Then, When } from "@cucumber/cucumber"
 import { expect } from "@playwright/test"
-import { DynamicTablesPage } from "../pages/DynamicTablesPage";
-Given('the user is on {string}', async function () {
-    await this.basePage.goto(
-        "https://techglobal-training.com/frontend/dynamic-tables"
-    );
-});
 
+Given(/^the user is on "([^"]*)"$/, async function () {
+	await this.page.goto('https://www.techglobal-training.com/frontend/dynamic-tables')
+});
 
 Then(/^the user should see the “Inventory” heading$/, async function() {
 	await expect(this.dynamicTablesPage.header).toHaveText('Inventory')
