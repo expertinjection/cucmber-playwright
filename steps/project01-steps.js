@@ -9,19 +9,22 @@ Given('the user is on {string}', async function () {
 
 
 Then(/^the user should see the “Inventory” heading$/, async function() {
-	return true;
+	await expect(this.dynamicTablesPage.header).toHaveText('Inventory')
 });
 
 Then(/^the user should see the table with the headers below$/, async function()  {
-	return true;
+	const actualHeaders = await this.dynamicTablesPage.tableHeaders.allTextContents();
+    expect(actualHeaders).toEqual(headers.raw()[0]);
 });
 
 Then(/^the user should see the table with the rows below$/, async function()  {
-	return true;
+	const actualRows = await this.dynamicTablesPage.tableRows.allTextContents();
+    const expectedRows = rows.raw().map(row => row.join(' '));
+    expect(actualRows).toEqual(expectedRows);
 });
 
 Then(/^the user should see the “ADD PRODUCT” button is enabled$/, async function()  {
-	return true;
+	await expect(this.dynamicTablesPage.addBtn).toBeEnabled()
 });
 
 Then('the user should see the "Total = $2,300" text displayed', async function () {
@@ -30,19 +33,19 @@ Then('the user should see the "Total = $2,300" text displayed', async function (
 
 
 When(/^the user clicks on the “ADD PRODUCT” button$/, async function() {
-	return true;
+	await this.dynamicTablesPage.clickAddButton()
 });
 
 Then(/^the user should see the “Add New Product” modal with its heading$/, async function() {
-	return true;
+	await expect(this.dynamicTablesPage.prodectModalTitle).toHaveText('Add New Product')
 });
 
 Then(/^the user should see the “X” button is enabled$/, async function() {
-	return true;
+	await expect(this.dynamicTablesPage.prodectModalCloseBtn).toBeEnabled()
 });
 
 Then(/^the user should see the “Please select the quantity” label$/, async function() {
-	return true;
+	
 });
 
 Then(/^the user should see the “Quantity” input box is enabled$/, async function() {
