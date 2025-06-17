@@ -116,6 +116,6 @@ Then(/^the user should see the table with the new row below$/, async function(){
 
 
 Then(/^the user should see the “Total = $2,500” text displayed$/, async function() {
-    await expect(this.dynamicTablesPage.total).toHaveText("Total = $2,300")
+    await expect(this.dynamicTablesPage.total).toHaveText("Total = $2,500")
 });
 
