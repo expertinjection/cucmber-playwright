@@ -1,4 +1,4 @@
-import { BasePage } from "../pages/BasePage"
+import { BasePage } from "../pages/BasePage.js"
 class DynamicTablesPage extends BasePage {
     constructor(page){
         super(page)

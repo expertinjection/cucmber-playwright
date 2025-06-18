@@ -1,8 +1,8 @@
 import { Given, Then, When } from "@cucumber/cucumber"
 import { expect } from "@playwright/test"
 
-Given(/^the user is on "([^"]*)"$/, async function () {
-	await this.page.goto('https://www.techglobal-training.com/frontend/dynamic-tables')
+Given(/^the user is on "([^"]*)"$/, async function (url) {
+	await this.basePage.goto('https://www.techglobal-training.com/frontend/dynamic-tables')
 });
 
 Then(/^the user should see the “Inventory” heading$/, async function() {
